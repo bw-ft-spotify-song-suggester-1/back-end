@@ -11,4 +11,14 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+    Users.findById(req.params.id)
+      .then((user) => {
+        res.status(200).json(user);
+      })
+      .catch((error) => {
+        res.status(400).json({ message: error.message });
+      });
+  });
+
 module.exports = router;

@@ -35,10 +35,10 @@ router.put("/:id", (req, res) => {
   }
   Users.update(id, changes)
     .then((count) => {
-      res.status(200).json({ "accounts updated": count });
+      res.status(200).json({ message: "Account successfully updated" });
     })
     .catch((error) => {
-      res.status(500).json({ error: "Error updating user" });
+      res.status(500).json({ error: error.message });
     });
 });
 
@@ -48,13 +48,40 @@ router.delete("/:id", (req, res) => {
   Users.remove(id)
     .then((count) => {
       if (count > 0) {
-        res.status(200).json({ "Accounts Deleted": count });
+        res.status(200).json({ message: "Account successfully deleted" });
       } else {
         res.status(200).json({ message: "Account not found" });
       }
     })
     .catch((error) => {
-      res.status(500).json({ error: "Error deleting user" });
+      res.status(500).json({ error: error.message });
+    });
+});
+
+// add favorite by user id
+router.post("/:id/favs", (req, res) => {
+  const id = req.params.id;
+  req.body.user_id = id;
+  const favorite = req.body;
+
+  Users.addFav(favorite)
+    .then((fav) => {
+      res.status(201).json(fav);
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+});
+
+// get favorites by user id
+router.get("/:id/favs", (req, res) => {
+  const id = req.params.id;
+  Users.findUserFavs(id)
+    .then((favs) => {
+      res.status(200).json(favs);
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
     });
 });
 

@@ -2,11 +2,13 @@ const db = require("../database/dbConfig.js");
 
 module.exports = {
   add,
+  addFav,
   find,
   findBy,
   findById,
   update,
   remove,
+  findUserFavs,
 };
 
 function find() {
@@ -32,4 +34,22 @@ function remove(id) {
 
 function findById(id) {
   return db("users").where({ id }).first();
+}
+
+function findFavById(id) {
+  return db("favorites").where({ id }).first();
+}
+
+function addFav(favorite) {
+  return db("favorites")
+    .insert(favorite, "id")
+    .then((ids) => {
+      console.log(ids);
+      const [id] = ids;
+      return findFavById(id);
+    });
+}
+
+function findUserFavs(id) {
+  return db("favorites").where({ user_id: id });
 }

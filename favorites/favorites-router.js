@@ -8,14 +8,27 @@ router.delete("/:id", (req, res) => {
     .then((count) => {
       if (count > 0) {
         res.status(200).json({
-          id, message: "Favorite deleted"
+          id,
+          message: "Favorite deleted",
         });
       } else {
-        res.status(200).json({ message: "Couldn't find a favorite with this id" });
+        res
+          .status(200)
+          .json({ message: "Couldn't find a favorite with this id" });
       }
     })
     .catch((error) => {
       res.status(500).json({ error: "Error deleting favorite" });
+    });
+});
+
+router.get("/", (req, res) => {
+  Favs.findAll()
+    .then((favs) => {
+      res.status(200).json(favs);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: error.message });
     });
 });
 

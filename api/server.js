@@ -16,7 +16,7 @@ server.use('/api/users', userRouter);
 server.use('/api/favorites', favRouter);
 
 server.get("/", (req, res) => {
-    res.status(200).json({ api: "up and running! go to /api/users /api/auth/register /api/auth/login for some requests!" });
+    res.status(200).json({ api: "up and running! view the readme for all endpoints available" });
   });
 
 module.exports = server;

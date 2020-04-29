@@ -9,7 +9,11 @@ https://spotify-song-suggester1.herokuapp.com/api/users/
 Registering a user - /auth/register
 
 { username: "", (required)
+
+
 password: "", (required)
+
+
 age: number, (optional)
 gender: "", (optional)
 location: "", (optional)
@@ -17,8 +21,11 @@ genre: "" (optional) }
 
 Login - /auth/login
 
-{ username: "",
-password: "" }
+{
+     username: "",
+     
+password: "" 
+}
 
 Get all users - /users
 

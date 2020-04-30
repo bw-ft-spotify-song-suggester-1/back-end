@@ -27,6 +27,8 @@ username: "",
 password: "" 
 }
 ````````````````````````````````````````````````````````````````````````````
+
+ALL ROUTES BESIDES LOGIN/REGISTER REQUIRE THE AUTHORIZATION HEADER TO HAVE THE USER'S TOKEN (aka axiosWithAuth)
 ````````````````````````````````````````````````````````````````````````````
 Get all users - /users
 ````````````````````````````````````````````````````````````````````````````

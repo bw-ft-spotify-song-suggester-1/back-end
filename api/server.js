@@ -12,8 +12,8 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 server.use('/api/auth', authRouter);
-server.use('/api/users', userRouter);
-server.use('/api/favorites', favRouter);
+server.use('/api/users', authenticate, userRouter);
+server.use('/api/favorites', authenticate, favRouter);
 
 server.get("/", (req, res) => {
     res.status(200).json({ api: "up and running! view the readme for all endpoints available" });

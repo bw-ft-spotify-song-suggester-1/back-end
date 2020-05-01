@@ -15,7 +15,7 @@ describe("registration functional", function () {
           expect(res.status).toBe(201);
         });
     });
-    it("should have added user to db", async function () {
+    it("should have correct user details in response", async function () {
       await request(server)
         .post("/api/auth/register")
         .send({ username: "gavtesting", password: "gavtesting" })
@@ -25,5 +25,15 @@ describe("registration functional", function () {
       const inserted = await db("users");
       expect(inserted).toHaveLength(1);
     });
+    it("should have added user to db", async function () {
+
+        await request(server)
+          .post("/api/auth/register")
+          .send({ username: "gavtesting", password: "gavtesting" })
+          .then((res) => {
+          });
+          const inserted = await db("users");
+          expect(inserted).toHaveLength(1);
+      });
   });
 });

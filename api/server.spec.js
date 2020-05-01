@@ -3,7 +3,7 @@ const server = require("./server.js");
 const db = require("../database/dbConfig.js");
 
 describe("server running", function () {
-  describe("/", function () {
+  describe("GET /", function () {
     it("should return status code 200", function () {
       return request(server)
         .get("/")
@@ -12,13 +12,15 @@ describe("server running", function () {
         });
     });
   });
-  describe("/", function () {
+  describe("GET /", function () {
     it("should return 'api: up and running! view the readme for all endpoints available'", function () {
       return request(server)
         .get("/")
         .then((res) => {
-          expect(res.body.api).toBe('up and running! view the readme for all endpoints available')
+          expect(res.body.api).toBe(
+            "up and running! view the readme for all endpoints available"
+          );
         });
     });
-  }); 
+  });
 });

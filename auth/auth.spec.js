@@ -3,7 +3,7 @@ const server = require("../api/server");
 const db = require("../database/dbConfig.js");
 
 describe("registration functional", function () {
-  describe("/auth/register", function () {
+  describe("POST /auth/register", function () {
     beforeEach(async () => {
       await db("users").truncate();
     });
@@ -37,7 +37,7 @@ describe("registration functional", function () {
 });
 
 describe("logion functional", function () {
-  describe("/auth/login", function () {
+  describe("POST /auth/login", function () {
     // beforeEach(async () => {
     //   await db("users").truncate();
     // });

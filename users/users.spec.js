@@ -4,7 +4,7 @@ const db = require("../database/dbConfig.js");
 
 describe("authentication restriction in place", function () {
   describe("GET /users", function () {
-    it("should restrict access", function () {
+    it("should restrict access without being logged in", function () {
       return request(server)
         .get("/api/users")
         .then((res) => {
@@ -12,7 +12,7 @@ describe("authentication restriction in place", function () {
           expect(res.body.message).toBe("Please provide credentials");
         });
     });
-    it("should allow with a token", function () {
+    it("should allow requests once logged in with a token", function () {
       return request(server)
         .post("/api/auth/register")
         .send({ username: "gavtest", password: "gavtest" })

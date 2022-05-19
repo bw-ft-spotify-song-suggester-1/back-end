@@ -1,7 +1,6 @@
 # back-end
 
-base url: https://spotify-song-suggester1.herokuapp.com/api
-All endpoints are prefixed with the baseurl + api
+base url: https://spotify-song-suggester1.herokuapp.com
 
 example url for users get request:
 https://spotify-song-suggester1.herokuapp.com/api/users/

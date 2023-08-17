@@ -1,9 +1,9 @@
 # back-end
 
-base url: https://spotify-song-suggester1.herokuapp.com
+base url: https://spotify-backend-kj2h.onrender.com/
 
 example url for users get request:
-https://spotify-song-suggester1.herokuapp.com/api/users/
+https://spotify-backend-kj2h.onrender.com/api/users/
 
 ````````````````````````````````````````````````````````````````````````````
 Registering a user - /auth/register
